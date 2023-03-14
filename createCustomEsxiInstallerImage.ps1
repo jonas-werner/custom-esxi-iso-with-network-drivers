@@ -16,13 +16,21 @@
 # Must be Administrator to execute prerequisites
 #
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
-Install-Module -Name VMware.PowerCLI -SkipPublisherCheck
+
+# Check if the VMware.PowerCLI module is imported
+if (-not (Get-Module -Name VMware.PowerCLI)) {
+  Install-Module -Name VMware.PowerCLI -SkipPublisherCheck
+}
+
 ##############################################################################
 
 ##############################################################################
 # Get the base ESXi image
 ##############################################################################
 Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false
+
+# Set the path to the Python 3.7 executable
+Set-PowerCLIConfiguration -PythonPath "c:\users\$env:username\appdata\local\programs\python\python37\python.exe" -Scope User
 
 # Fetch ESXi image depot
 Add-EsxSoftwareDepot https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml
