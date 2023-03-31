@@ -1,9 +1,9 @@
 ##############################################################################################
 #     ____________  __ _    _                               __          _ __    __         
 #    / ____/ ___/ |/ /(_)  (_)___ ___  ____ _____ ____     / /_  __  __(_) /___/ /__  _____
-#   / __/  \__ \|   # /  / / __ `__ \/ __ `/ __ `/ _ \   / __ \/ / / / / / __  / _ \/ ___/
+#   / __/  \__ \|   // /  / / __ `__ \/ __ `/ __ `/ _ \   / __ \/ / / / / / __  / _ \/ ___/
 #  / /___ ___/ /   |/ /  / / / / / / / /_/ / /_/ /  __/  / /_/ / /_/ / / / /_/ /  __/ /    
-# /_____#____/_/|_/_/  /_/_/ /_/ /_/\__,_/\__, /\___/  /_.___/\__,_/_/_/\__,_/\___/_/     
+# /_____//____/_/|_/_/  /_/_/ /_/ /_/\__,_/\__, /\___/  /_.___/\__,_/_/_/\__,_/\___/_/     
 #                                         /____/                                           
 ##############################################################################################
 # Author: Jonas Werner
@@ -38,7 +38,7 @@ if (-not (Get-Module -Name VMware.PowerCLI)) {
 ##############################################################################
 Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false
 
-# Set the path to the ython 3.7 executable (this specific version is required per VMware PowerCLI Compatibility Matrixes)
+# Set the path to the Python 3.7 executable (this specific version is required per VMware PowerCLI Compatibility Matrixes)
 # You may have to manually change the python.exe path, but this is the path that chocolately installs it to by default
 Set-PowerCLIConfiguration -PythonPath "c:\python37\python.exe" -Scope User
 
