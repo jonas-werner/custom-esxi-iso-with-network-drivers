@@ -75,7 +75,8 @@ Invoke-WebRequest -Uri https://download3.vmware.com/software/vmw-tools/USBNND/ES
 ##############################################################################
 
 # Add community network driver
-Add-EsxSoftwareDepot .\Net-Community-Driver_1.2.7.0-1vmw.700.1.0.15843807_19480755.zip
+# This is necessary for ESXi 7.x versions but VMware already includes the community network drivers in ESXi 8.x
+#Add-EsxSoftwareDepot .\Net-Community-Driver_1.2.7.0-1vmw.700.1.0.15843807_19480755.zip
 
 # Add USB NIC driver
 Add-EsxSoftwareDepot .\ESXi800-VMKUSB-NIC-FLING-61054763-component-20826251.zip
@@ -92,7 +93,7 @@ New-EsxImageProfile -CloneProfile "ESXi-8.0b-21203435-standard" -name "ESXi-8.0b
 #Remove-EsxSoftwarePackage -ImageProfile "ESXi-8.0b-21203435-standard-Net-Drivers" -SoftwarePackage "ne1000"
 
 # Add community network driver package to custom profile
-Add-EsxSoftwarePackage -ImageProfile "ESXi-8.0b-21203435-standard-Net-Drivers" -SoftwarePackage "net-community"
+#Add-EsxSoftwarePackage -ImageProfile "ESXi-8.0b-21203435-standard-Net-Drivers" -SoftwarePackage "net-community"
 
 # Add USB NIC driver package to custom profile
 Add-EsxSoftwarePackage -ImageProfile "ESXi-8.0b-21203435-standard-Net-Drivers" -SoftwarePackage "vmkusb-nic-fling"
